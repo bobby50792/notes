@@ -7,5 +7,5 @@ title: LaTeX 测试
 这是一个块级公式：
 
 $$
-\int_0^1 x^2\,dx = \frac{1}{3}
+\int_0^2 x^2\,dx = \frac{1}{3}
 $$
