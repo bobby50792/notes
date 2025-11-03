@@ -3,6 +3,8 @@
 This project was created with Docusaurus.
 
 ## How to run
-npm run build
+git add .
 
-npm run serve
+git commit -m "update"
+
+git push
