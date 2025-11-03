@@ -13,7 +13,6 @@ const config: Config = {
   projectName: 'notes',
   onBrokenLinks: 'warn',
   i18n: { defaultLocale: 'zh-Hans', locales: ['zh-Hans'] },
-
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -30,9 +29,9 @@ const config: Config = {
           rehypePlugins: [rehypeKatex],
         },
         blog: {
-          showReadingTime: true,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          blogSidebarTitle: '\u200B',
         },
         theme: { customCss: require.resolve('./src/css/custom.css') },
       } satisfies Preset.Options,

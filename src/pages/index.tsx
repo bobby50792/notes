@@ -46,7 +46,7 @@ export default function Home() {
         <Link className="button button--primary button--lg" to="/docs/intro">
           进入文档
         </Link>
-        <Link className="button button--secondary button--lg" to="/blog/intro">
+        <Link className="button button--secondary button--lg" to="/blog/">
           查看博客
         </Link>
       </div>
