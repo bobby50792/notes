@@ -29,9 +29,10 @@ const config: Config = {
           rehypePlugins: [rehypeKatex],
         },
         blog: {
+          showReadingTime: false,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          blogSidebarTitle: '\u200B',
+          blogSidebarTitle: "最新文章",
         },
         theme: { customCss: require.resolve('./src/css/custom.css') },
       } satisfies Preset.Options,

@@ -1,30 +1,65 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Redirect } from '@docusaurus/router';
 import useGlobalData from '@docusaurus/useGlobalData';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
-export default function BlogRedirect() {
+export default function BlogIndex() {
   const gd = useGlobalData() as any;
 
-  // 这里直接读官方博客插件的数据：
-  // 名字是 'docusaurus-plugin-content-blog'，默认 id 为 'default'
-  const blog = gd['docusaurus-plugin-content-blog']?.default;
-  const posts = blog?.blogPosts ?? [];
+  const blogData = useMemo(() => {
+    const entries = Object.entries(gd || {});
+    for (const [key, val] of entries) {
+      const v = (val as any) ?? {};
+      const posts =
+        v?.default?.blogPosts ??
+        v?.blogPosts ??
+        v?.default?.posts ??
+        v?.posts;
+      if (Array.isArray(posts)) return { key, posts };
+    }
+    return { key: undefined, posts: [] as any[] };
+  }, [gd]);
 
-  // 计算“最新一篇”
-  let target = '/blog';
-  if (posts.length > 0) {
-    const latest = [...posts].sort(
-      (a, b) =>
-        new Date(b.metadata.date).getTime() -
-        new Date(a.metadata.date).getTime()
-    )[0];
-    target = latest.metadata.permalink;
-  } else {
-    // 如果你启用了分页（postsPerPage 不是 'ALL'），兜底用 '/blog/1'
-    // 没有分页就保持 '/blog'
-    // target = '/blog/1';
-    target = '/blog';
+  const latestPermalink = useMemo(() => {
+    const posts = blogData.posts ?? [];
+    if (posts.length === 0) return undefined;
+    const getDate = (p: any) =>
+      new Date((p?.metadata?.date ?? p?.date) || 0).getTime();
+    const latest = [...posts].sort((a, b) => getDate(b) - getDate(a))[0];
+    return latest?.metadata?.permalink ?? latest?.permalink;
+  }, [blogData]);
+
+  const isDebug =
+    ExecutionEnvironment.canUseDOM &&
+    new URLSearchParams(window.location.search).get('debug') === '1';
+
+  if (isDebug) {
+    return (
+      <div style={{ padding: 24, fontFamily: 'monospace' }}>
+        <h2>/blog 调试模式</h2>
+        <p>GlobalData 可用键：{JSON.stringify(Object.keys(gd || {}))}</p>
+        <p>匹配到的博客插件键：{String(blogData.key)}</p>
+        <p>blogPosts 数量：{blogData.posts?.length ?? 0}</p>
+        <p>latest permalink：{latestPermalink || '(未找到)'}</p>
+        <p>说明：正常访问 <code>/blog</code> 会自动跳转。加上
+          <code>?debug=1</code> 可查看调试信息。
+        </p>
+      </div>
+    );
   }
 
-  return <Redirect to={target} />;
+  // 由于把博客放到 /posts，兜底路径要改成 /posts
+  const fallback = '/posts';
+  const target = latestPermalink ?? fallback;
+
+  if (!ExecutionEnvironment.canUseDOM) {
+    return <Redirect to={target} />;
+  }
+  useEffect(() => {
+    if (window.location.pathname !== target) {
+      window.location.replace(target);
+    }
+  }, [target]);
+
+  return null;
 }
