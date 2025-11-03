@@ -1,30 +1,54 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * 清新蓝主题配色 for Docusaurus Classic
+ * by ChatGPT 定制
  */
 
-/* You can override the default Infima variables here. */
+/* 浅色模式（默认） */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* 主色：柔和的蓝色 */
+  --ifm-color-primary: #3b82f6;          /* 按钮、链接、标题主色 */
+  --ifm-color-primary-dark: #2563eb;     /* 鼠标悬停 */
+  --ifm-color-primary-darker: #1d4ed8;   /* 按下时 */
+  --ifm-color-primary-darkest: #1e40af;  /* 更深层次 */
+  --ifm-color-primary-light: #60a5fa;    /* 浅色 */
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
+
+  /* 代码与高亮 */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1); /* 浅蓝高亮背景 */
+
+  /* 字体 */
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* 深色模式 */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #60a5fa;          /* 柔和浅蓝 */
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+
+  /* 深色模式下代码高亮背景 */
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.25);
+}
+
+/* 可选：按钮与标题的微调 */
+.button.button--primary {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+.button.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 可选：标题视觉微调 */
+h1, h2, h3 {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  letter-spacing: 0.02em;
 }

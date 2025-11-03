@@ -1,44 +1,65 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
+import React from 'react';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+export default function Home() {
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
+    <main
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: '2rem 1rem',
+        background:
+          'linear-gradient(180deg, var(--ifm-color-primary-lightest) 0%, #ffffff 100%)',
+      }}
+    >
+      {/* 主标题 */}
+      <h1
+        style={{
+          fontSize: '2.8rem',
+          fontWeight: 700,
+          color: 'var(--ifm-color-primary-darkest)',
+          marginBottom: '1rem',
+        }}
+      >
+        欢迎来到 Bobby 的站点！
+      </h1>
+
+      {/* 副标题 */}
+      <p
+        style={{
+          fontSize: '1.2rem',
+          color: 'var(--ifm-color-primary-darker)',
+          maxWidth: '680px',
+          lineHeight: 1.8,
+          marginBottom: '2.5rem',
+        }}
+      >
+        这里是一个基于 Docusaurus 构建的文档网站。<br />
+      </p>
+
+      {/* 按钮区 */}
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <Link className="button button--primary button--lg" to="/docs/intro">
+          进入文档
+        </Link>
+        <Link className="button button--secondary button--lg" to="/blog/intro">
+          查看博客
+        </Link>
       </div>
-    </header>
-  );
-}
 
-export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
+      {/* 页脚小字 */}
+      <footer
+        style={{
+          marginTop: '4rem',
+          fontSize: '0.9rem',
+          color: '#777',
+        }}
+      >
+      </footer>
+    </main>
   );
 }
