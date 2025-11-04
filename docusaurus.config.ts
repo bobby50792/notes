@@ -2,7 +2,6 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { themes as prismThemes } from 'prism-react-renderer';
 import remarkMath from 'remark-math';
-import remarkFootnotes from 'remark-footnotes';
 import rehypeKatex from 'rehype-katex';
 import { visit } from 'unist-util-visit';
 
@@ -37,12 +36,12 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.ts'),
-          remarkPlugins: [remarkMath, remarkFootnotes],
+          remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex, rehypeRenameFootnotes],
         },
         blog: {
           showReadingTime: false,
-          remarkPlugins: [remarkMath, remarkFootnotes],
+          remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex, rehypeRenameFootnotes],
           blogSidebarTitle: "最新文章",
         },
