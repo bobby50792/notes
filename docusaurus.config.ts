@@ -2,7 +2,19 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { themes as prismThemes } from 'prism-react-renderer';
 import remarkMath from 'remark-math';
+import remarkFootnotes from 'remark-footnotes';
 import rehypeKatex from 'rehype-katex';
+import { visit } from 'unist-util-visit';
+
+function rehypeRenameFootnotes() {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (node.tagName === 'h2' && node.children?.[0]?.value === 'Footnotes') {
+        node.children[0].value = '脚注';
+      }
+    });
+  };
+}
 
 const config: Config = {
   title: 'Bobby 的网站',
@@ -25,13 +37,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.ts'),
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
+          remarkPlugins: [remarkMath, remarkFootnotes],
+          rehypePlugins: [rehypeKatex, rehypeRenameFootnotes],
         },
         blog: {
           showReadingTime: false,
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
+          remarkPlugins: [remarkMath, remarkFootnotes],
+          rehypePlugins: [rehypeKatex, rehypeRenameFootnotes],
           blogSidebarTitle: "最新文章",
         },
         theme: { customCss: require.resolve('./src/css/custom.css') },
