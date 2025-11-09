@@ -7,5 +7,5 @@ sidebar_position: 1
 
 （玩法极其简单，只需要操作鼠标，就不写说明了）
 
-下载链接：https://pan.baidu.com/s/1jsL3blcgmbkPG7HkVh-NnQ 提取码: arrj 
+下载链接：https://pan.baidu.com/s/1aGChN-jD-AZCjWGgtVIeFw 提取码: 1ca5 
 
