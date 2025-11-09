@@ -1,4 +1,6 @@
-#### Field
+# Vector Spaces
+
+## Field
 
 1. $\forall a, b \in F$, $a + b \in F$, $a \cdot b \in F$.
 2. $\forall a, b, c \in F$, $(a + b) + c = a + (b + c)$, $(a \cdot b) \cdot c = a \cdot (b \cdot c)$.
@@ -9,10 +11,7 @@
 7. $\forall a \in F \setminus \{0\}$, there exists an element $a^{-1} \in F$ such that $a \cdot a^{-1} = 1$.
 8. $\forall a, b, c \in F$, $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$.
 
-
-
-
-##### Example:
+### Examples
 
 1. $\mathbb{Q}$ — the field of rational numbers.
 
@@ -23,7 +22,7 @@
 
 
 
-#### Vector Space
+## Vector Space
 
 1. $\forall x, y \in V$, $x + y \in V$.
 2. $\forall a \in F, \forall x \in V$, $ax \in V$.
@@ -38,7 +37,7 @@
 
 
 
-##### Examples:
+### Examples
 
 1. $\text{F}_n$ — the set of all $n$-tuples with entries from a field $F$.
 
@@ -57,9 +56,9 @@ $$
 
 5. $\mathcal{F}(S, F)$ — Let $S$ be any nonempty set and $F$ be any field, and $\mathcal{F}(S, F)$ denote the set of all functions from $S$ to $F$.
 
+	
 
-
-#### Subspace
+## Subspace
 
 Let $V$ be a vector space and $W$ a **subspace** of $V$ if and only if:
 
@@ -69,13 +68,13 @@ Let $V$ be a vector space and $W$ a **subspace** of $V$ if and only if:
 
 
 
-##### Theorems:
+### Theorems
 
 1. Any intersection of subspaces of a vector space $V$ is a subspace of $V$.
 
 	
 
-#### Linear Combination
+## Linear Combination
 
 Let $V$ be a vector space and $S$ a nonempty subset of $V$. 
 
@@ -95,7 +94,7 @@ Let $S$ be a nonempty subset of a vector space $V$.  The **span** of $S$, denote
 
 	 
 
-#### Linear Dependence and Linear Independence
+## Linear Dependence and Linear Independence
 
 A subset $S$ of a vector space $V$ is called **linearly dependent** if there exist a finite number of distinct vectors $ u_1, u_2, \ldots, u_n $ in $S$ and scalars $a_1, a_2, \ldots, a_n$, not all zero, such that 
 
@@ -108,30 +107,22 @@ A subset $S$ of a vector space $V$ is not linearly dependent is called **linearl
 
 
 
-##### Theorems:
+### Theorems
 
 1. Let $V$ be a vector space, and let $S_1 \subseteq S_2 \subseteq V$.  If $S_2$ is linearly independent, then $S_1$ is linearly independent.
 2. Let $S$ be a linearly independent subset of a vector space $V$,  and let $v$ be a vector in $V$ that is not in $S$.  Then $S \cup \{v\}$ is linearly dependent if and only if $v \in \text{span}(S)$.
 
 
 
-#### Basis
+## Basis
 
 A **basis** $\beta$ for a vector space $V$ is a linearly independent subset of $V$ that generates $V$.  
 
 
 
-##### Theorems:
+### Theorems
 
-1. Let $V$ be a vector space and $\beta = \{u_1, u_2, \ldots, u_n\}$ be a subset of $V$. Then $\beta$ is a basis for $V$ if and only if each $v \in V$ can be uniquely expressed as a linear combination of vectors of $\beta$,  that is, can be expressed in the form  
-
-$$
-\begin{equation*}
-v = a_1u_1 + a_2u_2 + \cdots + a_nu_n
-\end{equation*}
-$$
-
-​	for unique scalars $a_1, a_2, \ldots, a_n$.
+1. Let $V$ be a vector space and $\beta = \{u_1, u_2, \ldots, u_n\}$ be a subset of $V$. Then $\beta$ is a basis for $V$ if and only if each $v \in V$ can be uniquely expressed as a linear combination of vectors of $\beta$,  that is, can be expressed in the form $v = a_1u_1 + a_2u_2 + \cdots + a_nu_n$ for unique scalars $a_1, a_2, \ldots, a_n$.
 
 
 
@@ -143,14 +134,14 @@ $$
 
 	
 
-#### Standard Basis
+### Standard Basis
 
 1. In $\text{F}^n$, let  $e_1 = (1, 0, 0, \ldots, 0)$,  $e_2 = (0, 1, 0, \ldots, 0)$,  $\ldots$ ,$e_n = (0, 0, \ldots, 0, 1)$. $\{e_1, e_2, \ldots, e_n\}$ is readily seen to be a basis for $\text{F}^n$ and is called the **standard basis** for $\text{F}^n$.  
 2. In $\text{P}_n(\text{F})$ the set $\{1, x, x^2, \ldots, x^n\}$ is a basis.  We call this basis the **standard basis** for $\text{P}_n(\text{F})$.
 
 
 
-#### Dimension
+## Dimension
 
 A vector space is called **finite-dimensional** if it has a basis consisting of a finite number of vectors.
 
@@ -160,7 +151,7 @@ A vector space that is not finite-dimensional is called **infinite-dimensional**
 
 
 
-##### Examples:
+### Examples
 
 1. The vector space $\{0\}$ has dimension zero.
 2. The vector space $\text{F}^n$ has dimension $n$.  
@@ -169,7 +160,7 @@ A vector space that is not finite-dimensional is called **infinite-dimensional**
 
 
 
-##### Theorems:
+### Theorems
 
 1. Let $W$ be a subspace of a finite-dimensional vector space $V$.  Then $W$ is finite-dimensional and $\dim(W) \le \dim(V)$.  Moreover, if $\dim(W) = \dim(V)$, then $V = W$.
 2. If $W$ is a subspace of a finite-dimensional vector space $V$,  then any basis for $W$ can be extended to a basis for $V$.
