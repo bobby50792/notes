@@ -1,4 +1,392 @@
 ---
 sidebar_position: 2
+
 ---
+
+# From Natural Numbers to Real Numbers
+
+## Natural Numbers
+
+1. There exists an element $0 \in \mathbb{N}$.
+
+2. There exists a function  
+    $$
+    \begin{equation*}
+    S : \mathbb{N} \to \mathbb{N}
+    \end{equation*}
+    $$
+    called the successor function, such that for every $ n \in \mathbb{N} $, $S(n)$ represents the next natural number after $n$.
+
+3. Zero is not the successor of any number
+    $$
+    \begin{equation*}
+    \forall n \in \mathbb{N},\; S(n) \neq 0
+    \end{equation*}
+    $$
+
+4. Successor function is injective (one-to-one) 
+    $$
+    \begin{equation*}
+    \forall m, n \in \mathbb{N},\; S(m) = S(n) \implies m = n
+    \end{equation*}
+    $$
+
+5. Principle of mathematical induction. For any property $ P(n) $ defined on $ \mathbb{N} $:  If
+    $$
+    \begin{equation*}
+    P(0) \text{ is true, and } \forall n \in \mathbb{N},\; P(n) \Rightarrow P(S(n)),
+    \end{equation*}
+    $$
+
+
+​    then
+$$
+    \begin{equation*}
+    \forall n \in \mathbb{N},\; P(n) \text{ is true.}
+    \end{equation*}
+$$
+
+
+
+### Addition
+
+The addition $ + : \mathbb{N} \times \mathbb{N} \to \mathbb{N} $ is defined recursively as follows:
+
+$$
+\begin{equation*}
+a + 0 = a
+\end{equation*}
+$$
+
+$$
+\begin{equation*}
+a + S(b) = S(a + b)
+\end{equation*}
+$$
+
+
+
+### Multiplication
+
+The multiplication $ \times : \mathbb{N} \times \mathbb{N} \to \mathbb{N} $ is defined recursively as follows:
+
+$$
+\begin{equation*}
+a \times 0 = 0
+\end{equation*}
+$$
+
+$$
+\begin{equation*}
+a \times S(b) = a \times b + a
+\end{equation*}
+$$
+
+
+
+### Order Relation
+
+For all $ m, n \in \mathbb{N} $:
+
+$$
+\begin{equation*}
+m < S(n) \iff (m < n) \text{ or } (m = n).
+\end{equation*}
+$$
+
+This defines $ < $ recursively based on the successor structure.
+
+
+
+### Theorems
+
+1. $a + (b + c) = (a + b) + c$.
+
+2. $a + 0 = 0 + a = a$.
+
+3. $a + b = b + a$.
+
+4. $(a + b)\times c = a \times c + b \times c$.
+
+5. $a \times 1 = 1 \times a = a$.
+
+6. $a \times b = b \times a$.
+
+7. $a \times (b \times c) = (a \times b) \times c$.
+
+    
+
+## Integers
+
+Integers can be defined from natural numbers as equivalence classes of ordered pairs of natural numbers:
+
+$$
+\begin{equation*}
+\mathbb{Z} = \{ (a, b) \mid a, b \in \mathbb{N} \}
+\end{equation*}
+$$
+We define an equivalence relation:
+
+$$
+\begin{equation*}
+(a, b) \sim (c, d) \iff a + d = b + c
+\end{equation*}
+$$
+
+Each equivalence class $[(a, b)]$ represents the difference between $a$ and $b$.  Thus we have:
+$$
+\begin{equation*}
+\begin{aligned}
+0 &= [(0, 0)], \\
+1 &= [(1, 0)], \\
+-1 &= [(0, 1)], \\
+a - b &= [(a, b)].
+\end{aligned}
+\end{equation*}
+$$
+
+
+### Addition
+
+$$
+\begin{equation*}
+[(a, b)] + [(c, d)] = [(a + c,\, b + d)]
+\end{equation*}
+$$
+
+
+
+### Multiplication
+
+$$
+\begin{equation*}
+[(a, b)] \times [(c, d)] = [(ac + bd,\, ad + bc)]
+\end{equation*}
+$$
+
+These definitions are **well-defined**, meaning the result does not depend on the choice of representatives of the equivalence classes.
+
+
+
+### Order Relation
+
+$$
+\begin{equation*}
+[(a,b)] < [(c,d)] \iff a + d < b + c.
+\end{equation*}
+$$
+
+
+
+### Theorems
+
+1. $a + b = b + a, \qquad a \times b = b \times a$.
+
+2. $a + (b + c) = (a + b) + c, \qquad a \times (b \times c) = (a \times b) \times c$.
+
+3. $a + 0 = a, \qquad a \times 1 = a$.
+
+4. $\forall a \in \mathbb{Z}, \; \exists (-a) \in \mathbb{Z} \text{ such that } a + (-a) = 0$.
+
+5. $a \times (b + c) = a \times b + a \times c$.
+
+    
+
+## Rational Numbers
+
+The set of **rational numbers** $\mathbb{Q} $ is constructed from the integers $ \mathbb{Z} $ as the set of **equivalence classes of ordered pairs** of integers:
+
+$$
+\begin{equation*}
+\mathbb{Q} = \{ (a, b) \mid a \in \mathbb{Z},\; b \in \mathbb{Z} \setminus \{0\} \}
+\end{equation*}
+$$
+
+Each pair $(a,b)$ intuitively represents the **fraction** $ \dfrac{a}{b} $.
+
+We define an equivalence relation:
+$$
+\begin{equation*}
+(a,b) \sim (c,d) \iff ad = bc
+\end{equation*}
+$$
+
+Each equivalence class $[(a,b)]$ corresponds to a rational number.
+
+We write:
+$$
+\begin{equation*}
+\dfrac{a}{b} = [(a,b)], \quad \text{where } b \neq 0
+\end{equation*}
+$$
+
+
+### Addition
+
+$$
+\begin{equation*}
+\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{ad + bc}{bd}
+\end{equation*}
+$$
+
+
+
+### Multiplication
+
+$$
+\begin{equation*}
+\dfrac{a}{b} \times \dfrac{c}{d} = \dfrac{ac}{bd}
+\end{equation*}
+$$
+
+
+
+### Additive Inverse
+
+$$
+\begin{equation*}
+-\dfrac{a}{b} = \dfrac{-a}{b}
+\end{equation*}
+$$
+
+
+
+### Multiplicative Inverse
+
+$$
+\begin{equation*}
+\left(\dfrac{a}{b}\right)^{-1} = \dfrac{b}{a}, \quad a \neq 0
+\end{equation*}
+$$
+
+
+
+### Order Relation
+
+To compare two rational numbers, let
+
+$$
+\begin{equation*}
+\dfrac{a}{b}, \; \dfrac{c}{d} \in \mathbb{Q}, \quad b > 0, \; d > 0.
+\end{equation*}
+$$
+
+We define the **order relation** $< $ on $ \mathbb{Q} $ by:
+
+$$
+\begin{equation*}
+\dfrac{a}{b} < \dfrac{c}{d} \iff ad < bc.
+\end{equation*}
+$$
+
+### Theorems
+
+1. $a+b = b+a, \qquad a\times b = b\times a$.
+
+2. $a+(b+c) = (a+b)+c, \qquad a\times(b\times c) = (a\times b)\times c$.
+
+3. $a+0 = a, \qquad a\times1 = a$.
+
+4. $\forall a \in \mathbb{Q},\; \exists (-a) \text{ such that } a+(-a)=0$.
+
+5. $\forall a \in \mathbb{Q}\setminus\{0\},\; \exists a^{-1} \text{ such that } a\times a^{-1}=1$.
+
+6. $a\times(b+c) = a\times b + a\times c$.
+
+    
+
+## Real Numbers
+
+A **Dedekind cut** in $ \mathbb{Q} $ is a partition $ (A, B) $ of $ \mathbb{Q} $ satisfying:
+
+$$
+\begin{equation*}
+\begin{aligned}
+1.\;& A, B \subset \mathbb{Q}, \; A \cup B = \mathbb{Q}, \; A \cap B = \varnothing, \\[4pt]
+2.\;& \forall a \in A,\; \forall b \in B,\; a < b, \\[4pt]
+3.\;& A \text{ has no greatest element.}
+\end{aligned}
+\end{equation*}
+$$
+Each real number is identified with one such cut $ A $,  which intuitively represents “all rationals less than that real number.”
+
+For example:
+
+$$
+\begin{equation*}
+\sqrt{2} = \{ q \in \mathbb{Q} \mid q < 0 \text{ or } q^2 < 2 \}.
+\end{equation*}
+$$
+
+The set of all Dedekind cuts is denoted by:
+
+$$
+\begin{equation*}
+\mathbb{R} = \{ A \subset \mathbb{Q} \mid A \text{ is a Dedekind cut} \}.
+\end{equation*}
+$$
+
+
+### Addition
+
+$$
+\begin{equation*}
+A + B = \{ a + b \mid a \in A,\, b \in B \}.
+\end{equation*}
+$$
+
+
+
+### Multiplication
+
+(for positive cuts)
+$$
+\begin{equation*}
+A \times B = \{ a \times b \mid a \in A,\, b \in B,\; a,b > 0 \}.
+\end{equation*}
+$$
+
+Negatives and general cases are defined symmetrically by extending signs.
+
+
+
+### Order Relation
+
+Define:
+$$
+\begin{equation*}
+A < B \iff A \subsetneq B.
+\end{equation*}
+$$
+
+This relation extends the usual order on $ \mathbb{Q} $ and makes $(\mathbb{R}, <) $ a **totally ordered set**.
+
+
+
+### Theorems
+
+1. $a+b = b+a, \qquad a\times b = b\times a$.
+2. $a+(b+c) = (a+b)+c, \qquad a\times(b\times c) = (a\times b)\times c$.
+3. $a+0 = a, \qquad a\times1 = a$.
+4. $\forall a \in \mathbb{Q},\; \exists (-a) \text{ such that } a+(-a)=0$.
+5. $\forall a \in \mathbb{Q}\setminus\{0\},\; \exists a^{-1} \text{ such that } a\times a^{-1}=1$.
+6. $a\times(b+c) = a\times b + a\times c$.
+
+7. The set of rational numbers $ \mathbb{Q} $ is **dense** in $ \mathbb{R} $:
+
+$$
+\begin{equation*}
+\forall a,b \in \mathbb{R},\; a < b \Rightarrow \exists r \in \mathbb{Q} \text{ such that } a < r < b.
+\end{equation*}
+$$
+
+8. Every nonempty subset $ S \subset \mathbb{R} $ that is bounded above has a **least upper bound (supremum)** in $ \mathbb{R} $:
+
+$$
+\begin{equation*}
+\forall S \subset \mathbb{R},\; S \neq \varnothing,\; \text{if } S \text{ is bounded above, then } \sup S \in \mathbb{R}.
+\end{equation*}
+$$
+
+   This property makes $ \mathbb{R} $ a **complete ordered field**.
 
