@@ -405,3 +405,80 @@ Let $V$ and $W$ be vector spaces.  We say that $V$ is **isomorphic** to $W$ if t
 #### Theorems  
 
 1. Let $V$ and $W$ be finite-dimensional vector spaces (over the same field).  Then $V$ is isomorphic to $W$ if and only if $\dim(V) = \dim(W)$.
+
+
+
+## The change of coordinate matrix
+
+Let $\beta$ and $\beta'$ be two ordered bases for a finite-dimensional vector space $V$,  and let $Q = [\,I_V\,]_{\beta}^{\beta'}$. Then 
+
+(a)  $Q$ is invertible.
+
+(b)  For any $v \in V$,  $[v]_{\beta} = Q [v]_{\beta'}$.
+
+The matrix $Q = [\,I_V\,]_{\beta}^{\beta'}$ defined in Theorem 2.22 is called a  **change of coordinate matrix**. 
+
+
+
+Let $T$ be a linear operator on a finite-dimensional vector space $V$,  and let $\beta$ and $\beta'$ be ordered bases for $V$.  Suppose that $Q$ is the change of coordinate matrix that changes  $\beta'$-coordinates into $\beta$-coordinates.  Then
+
+$$
+\begin{equation*}
+[T]_{\beta'} = Q^{-1} [T]_{\beta} Q.
+\end{equation*}
+$$
+
+
+Let $A$ and $B$ be matrices in $M_{n \times n}(F)$.  We say that $B$ is **similar** to $A$ if there exists an invertible matrix $Q$  such that
+
+$$
+\begin{equation*}
+B = Q^{-1} A Q.
+\end{equation*}
+$$
+
+
+## Dual spaces
+
+For a vector space $V$ over $F$, we define the **dual space** of $V$  to be the vector space $\mathcal{L}(V, F)$, denoted by $V^{*}$.We also define the **double dual** $V^{**}$ of $V$ to be the dual of $V^{*}$. 
+
+
+
+Suppose that $V$ is a finite-dimensional vector space with the ordered basis  $\beta = \{x_1, x_2, \dots, x_n\}$.  Let $f_i$ ($1 \le i \le n$) be the $i$th coordinate function with respect to $\beta$  as just defined, and let $\beta^{*} = \{f_1, f_2, \dots, f_n\}$.  Then $\beta^{*}$ is an ordered basis for $V^{*}$, and, for any $f \in V^{*}$, we have
+$$
+\begin{equation*}
+f = \sum_{i=1}^{n} f(x_i)\, f_i.
+\end{equation*}
+$$
+
+
+we call the ordered basis  $\beta^{*} = \{f_1, f_2, \dots, f_n\}$ of $V^{*}$ that satisfies  $f_i(x_j) = \delta_{ij}$ ($1 \le i, j \le n$)  the **dual basis** of $\beta$.
+
+
+
+### Transpose
+
+Let $V$ and $W$ be finite-dimensional vector spaces over $F$ with ordered bases $\beta$ and $\gamma$, respectively.  For any linear transformation $T : V \to W$, the mapping  $T^{t} : W^{*} \to V^{*}$ defined by  $T^{t}(g) = gT$ for all $g \in W^{*}$  is a linear transformation with the property that
+
+$$
+\begin{equation*}
+[T^{t}]_{\gamma^{*}}^{\beta^{*}} = ([T]_{\beta}^{\gamma})^{t}.
+\end{equation*}
+$$
+
+
+For a vector $x \in V$, we define $\widehat{x} : V^{*} \to F$ by  $\widehat{x}(f) = f(x)$ for every $f \in V^{*}$.  It is easy to verify that $\widehat{x}$ is a linear functional on $V^{*}$,  so $\widehat{x} \in V^{**}$.  
+
+
+
+Let $V$ be a finite-dimensional vector space, and let $x \in V$.  If $\widehat{x}(f) = 0$ for all $f \in V^{*}$, then $x = 0$.
+
+
+
+### Theorems
+
+1. Let $V$ be a finite-dimensional vector space, and define  $\psi : V \to V^{**}$ by $\psi(x) = \widehat{x}$.  Then $\psi$ is an isomorphism.
+
+	
+
+2. Let $V$ be a finite-dimensional vector space with dual space $V^{*}$.  Then every ordered basis for $V^{*}$ is the dual basis for some basis for $V$.
