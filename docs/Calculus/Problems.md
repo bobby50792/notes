@@ -177,3 +177,22 @@ $$
 
 
 
+11. Evaluate the integral:
+	$$
+	\begin{equation*}
+	\int \tan(x)\,\sqrt{\,2 + \sqrt{4 + \cos x}\,}\,dx
+	\end{equation*}
+	$$
+	
+
+
+
+12. Evaluate the integral:
+	$$
+	\begin{equation*}
+	\int_{0}^{\infty} \frac{dx}{\bigl(x + 1 + \lfloor 2\sqrt{x} \rfloor\bigr)^2}
+	\end{equation*}
+	$$
+	
+
+13. 
