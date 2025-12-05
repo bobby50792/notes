@@ -120,3 +120,7 @@ $$
 	$$
 
 	where $I_r$ is the $r \times r$ identity matrix, and $0$ are zero matrices.
+
+
+
+8. If $A^2 = I_n$, Prove $A$ is diagonalizable (here $A$ is a real square matrix).
