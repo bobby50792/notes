@@ -195,4 +195,28 @@ $$
 	$$
 	
 
-13. 
+
+
+13. Prove the following inequalities:
+
+	a. For any $x \in [0,\pi]$ and $t \in [0,1]$, we have  $\sin(tx) \ge t \sin x.$
+
+	b. For any $x \ge 0$ and $p>0$, we have  
+	$$
+	\begin{equation*}
+	\int_{0}^{x} |\sin u|^{p}\, du 
+	\ge \frac{x\, |\sin x|^{p}}{p+1}.
+	\end{equation*}
+	$$
+	
+
+
+
+14. Find an integrable function $f$ on $[0,1]$ such that for every $x \in [0,1]$.
+	$$
+	\begin{equation*}
+	f(x) = 1 + (1-x) \int_{0}^{x} y f(y)\, dy 
+	      + x \int_{x}^{1} (1-y) f(y)\, dy .
+	\end{equation*}
+	$$
+	
