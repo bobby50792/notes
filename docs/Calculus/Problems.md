@@ -219,4 +219,3 @@ $$
 	      + x \int_{x}^{1} (1-y) f(y)\, dy .
 	\end{equation*}
 	$$
-	
