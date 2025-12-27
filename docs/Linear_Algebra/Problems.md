@@ -124,3 +124,7 @@ $$
 
 
 8. If $A^2 = I_n$, Prove $A$ is diagonalizable (here $A$ is a real square matrix).
+
+
+
+9. (Simultaneous Diagonalization) Let $V$ be a finite-dimensional real inner product space, and let $U$ and $T$ be self-adjoint linear operators on \(V\) such that $UT = TU$. Prove that there exists an orthonormal basis of \(V\) consisting of vectors that are eigenvectors of both \(U\) and \(T\).
