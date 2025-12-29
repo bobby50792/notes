@@ -17,21 +17,35 @@ sidebar_position: 100
 
 2. Let $\{x_n\}$ be a sequence in $(0,1)$ whose terms are all distinct.  
 
-​	a. Prove that: if there exists $a \in (0,1)$ such that for all $n \in \mathbb{N}^+$,
-$$
-\begin{equation*}
-\frac{x_{n+2} - x_n}{x_{n+1} - x_n} \in (a,1),
-\end{equation*}
-$$
-​	then the sequence $\{x_n\}$ is convergent.
+	
 
-​	b. Let $c \in \left(0,\frac{3}{4}\right)$, and let $\{x_n\}$ satisfy $x_1 \in (0,1)$ and for all $n \in \mathbb{N}^+$,
-$$
-\begin{equation*}
-x_{n+1} = 1 - c x_n^2.
-\end{equation*}
-$$
-​	Prove that $\{x_n\}$ is convergent and find its limit.
+	a. Prove that: if there exists $a \in (0,1)$ such that for all $n \in \mathbb{N}^+$,
+
+	
+	$$
+	\begin{equation*}
+	\frac{x_{n+2} - x_n}{x_{n+1} - x_n} \in (a,1),
+	\end{equation*}
+	$$
+	
+
+	then the sequence $\{x_n\}$ is convergent.
+
+	
+
+	b. Let $c \in \left(0,\frac{3}{4}\right)$, and let $\{x_n\}$ satisfy $x_1 \in (0,1)$ and for all $n \in \mathbb{N}^+$,
+
+	
+	$$
+	\begin{equation*}
+	x_{n+1} = 1 - c x_n^2.
+	\end{equation*}
+	$$
+	
+
+	Prove that $\{x_n\}$ is convergent and find its limit.
+
+3. 
 
 
 
@@ -141,10 +155,10 @@ $$
 	P_n(x) = e^x \frac{d^n}{dx^n}\left( e^{-x} x^n \right).
 	\end{equation*}
 	$$
+	
+	
+	Prove that:
 
-
-
-​	Prove that:
 $$
 \begin{equation*}
 P_n(x) \text{ has } n \text{ distinct positive zeros.}
@@ -222,4 +236,40 @@ $$
 
 
 
-15. 
+15. $$
+	\begin{equation*}
+	\int_{0}^{2\pi}
+	\frac{d\theta}{
+	A \cos^2 \theta
+	+ 2B \cos \theta \sin \theta
+	+ C \sin^2 \theta
+	},
+	\qquad A > 0,\; AC > B^2
+	\end{equation*}
+	$$
+
+
+
+16. $$
+	\begin{equation*}
+	\int_{0}^{a}
+	\left(
+	a^{\frac{2}{3}} - x^{\frac{1}{3}}
+	\right)^{\frac{3}{2}}
+	\, dx
+	\end{equation*}
+	$$
+
+
+
+17. 
+	$$
+	\begin{equation*}
+	\lim_{n \to \infty}
+	\frac{1}{\ln n}
+	\int_{0}^{\pi/2}
+	\frac{\sin^2 (n x)}{\sin x}\, dx.
+	\end{equation*}
+	$$
+	
+
