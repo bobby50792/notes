@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-#  Problem
+#  Exercises
 
 1. Consider a system of linear questions
 	$$
