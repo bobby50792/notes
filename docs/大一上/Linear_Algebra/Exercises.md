@@ -53,6 +53,7 @@ sidebar_position: 8
 	$$
 	
 
+	
 	where $A$ and $B$ are $n \times n$ matrices.
 
 
@@ -120,15 +121,15 @@ sidebar_position: 8
 
 
 
-9. Let $V$ be a finite-dimensional real inner product space, and let $U$ and $T$ be self-adjoint linear operators on \(V\) such that $UT = TU$. Prove that there exists an orthonormal basis of \(V\) consisting of vectors that are eigenvectors of both \(U\) and \(T\).
+9. Let $V$ be a finite-dimensional real inner product space, and let $U$ and $T$ be self-adjoint linear operators on $V$ such that $UT = TU$. 
+
+	Prove that there exists an orthonormal basis of $V$ consisting of vectors that are eigenvectors of both $U$ and $T$.
 
 
 
-10. Let $A$ and $B$ be $n \times n$ complex matrices satisfying the condition $AB = A + B$
+10. Let $A$ and $B$ be $n \times n$ complex matrices satisfying the condition $AB = A + B.$
 
-	Prove that $A$ and $B$ are simultaneously triangularizable (i.e., there exists a basis 
-
-	under which both $A$ and $B$ are upper triangular matrices).
+	Prove that $A$ and $B$ are simultaneously triangularizable (there exists a basis under which both $A$ and $B$ are upper triangular matrices).
 
 
 
