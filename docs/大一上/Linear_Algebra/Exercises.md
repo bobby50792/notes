@@ -52,7 +52,7 @@ sidebar_position: 8
 	\end{equation*}
 	$$
 	
-
+	
 	
 	where $A$ and $B$ are $n \times n$ matrices.
 
