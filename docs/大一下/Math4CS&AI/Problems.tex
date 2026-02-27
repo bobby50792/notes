@@ -1,0 +1,94 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, amsfonts, amssymb}
+
+\usetheme{Antibes}
+
+\usecolortheme{dolphin}
+
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{navigation symbols}{}
+
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+\title{Math for CS \& AI}
+\author{Bobby}
+\institute{IIIS, Tsinghua University}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\begin{section}{Discrete Probability}
+
+\begin{subsection}{Problem 1}
+    \begin{frame}
+        \begin{block}{Problem 1}
+            Consider \(n\) aliens living on a planet with \(m\) days in a year. Let \(A\) be the event that at least two aliens share the same birthday. Prove that the collision probability $\Pr[A]$ satisfies:
+            \[\Pr[A] = 1 - e^{-N/m} + \mathcal{O}\left(\frac{1}{\sqrt{m}}\right)\]
+
+            as \(m \to \infty\), where \(N := n(n-1)/2\).    
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            It is much easier to first calculate the probability of no collisions, denoted as $\bar{A}$.
+            \[
+                \Pr[A] = 1 - \Pr[\bar{A}] = 1 - \prod_{k=0}^{n-1} \left(1 - \frac{k}{m}\right)
+            \]
+        \end{block}
+
+        \pause
+        \vspace{2em}
+        \begin{block}{Hint 2}
+            The asymptotic behavior of the error term depends heavily on the growth rate of $n$. Decompose the proof into two cases based on a threshold:
+            \begin{itemize}
+                \item Case 1: $n \le m^{0.6}$ (Small $n$)
+                \item Case 2: $n > m^{0.6}$ (Large $n$)
+            \end{itemize}
+        \end{block}
+
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Take the natural logarithm of $\Pr[\bar{A}]$ and apply the Taylor expansion $\ln(1-x) = -x + \mathcal{O}(x^2)$:
+            \[
+                \ln \Pr[\bar{A}] = \sum_{k=0}^{n-1} \ln\left(1 - \frac{k}{m}\right) = \underbrace{-\sum_{k=0}^{n-1} \frac{k}{m}}_{\text{Main term } -N/m} + \underbrace{\mathcal{O}\left(\sum_{k=0}^{n-1} \frac{k^2}{m^2}\right)}_{\text{Error term } \mathcal{O}(n^3/m^2)}
+            \]
+        \end{block}
+    \end{frame} 
+
+    \begin{frame}
+        \begin{block}{Hint 4}
+            Use the standard inequality $1 - x \le e^{-x}$ for all $x \in \mathbb{R}$ to upper bound the product directly:
+            \[
+                \Pr[\bar{A}] \le \prod_{k=0}^{n-1} e^{-k/m} = e^{-N/m}
+            \]
+            Then, show that for large $n$, both $\Pr[\bar{A}]$ and $e^{-N/m}$ become negligibly small and are absorbed by the $\mathcal{O}\left(\frac{1}{\sqrt{m}}\right)$ error bound.
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\end{section}
+
+
+\end{document}
