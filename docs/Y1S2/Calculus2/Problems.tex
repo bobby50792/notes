@@ -36,244 +36,128 @@
     \tableofcontents[hideallsubsections]
 \end{frame}
 
-\begin{section}{Real Numbers and Limits of Sequences}
+\begin{section}{Limits and Continuity of Multivariate Functions}
 
 \begin{subsection}{Problem 1}
     \begin{frame}
         \begin{block}{Problem 1}
-            Suppose that $\{a_n\}_{n=1}^\infty$ is a sequence of real numbers converging to a real number $L$. Determine the value of the following limit:
-            \[
-            \lim_{n \to \infty} \left( \frac{a_1 + 2a_2 + \cdots + n a_n}{1 + 2 + \cdots + n} \right)
-            \]
-            You are required to prove your conclusion using $\epsilon$-$N$ language.
+            Determine the necessary and sufficient conditions on the coefficients $a, b,$ and $c$ such that the quadratic form $f(x, y) = ax^2 + bxy + cy^2$ is of the same order as $g(x, y) = x^2 + y^2$ as $(x, y) \to (0, 0)$.    
         \end{block}
     \end{frame}
 
     \begin{frame}
         \begin{block}{Hint 1}
-            Let $b_n = a_n - L$. Since $b_n \to 0$, it suffices to prove the case where the limit is $0$.
+            To prove two functions are of the same order, you must show that the limit of their ratio is bounded between two positive constants $m$ and $M$ as the variables approach the origin.
         \end{block}
 
         \pause
         \vspace{2em}
         \begin{block}{Hint 2}
-            Decompose the numerator into two parts:
-            \[
-                \sum_{k=1}^n k b_k = \underbrace{\sum_{k=1}^{N} k b_k}_{\text{Fixed finite sum}} + \underbrace{\sum_{k=N+1}^n k b_k}_{\text{Controlled by } \epsilon}
-            \]
+            Utilize the transformation to polar coordinates: $x = r \cos \theta$ and $y = r \sin \theta$. Observe how the radius $r$ cancels out in the ratio of the two quadratic forms.
         \end{block}
 
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Recall that a continuous function on a compact set (like $\theta \in [0, 2\pi]$) attains its maximum and minimum values. Use the condition $b^2 < 4ac$ to ensure the function never reaches zero.
+        \end{block}
     \end{frame}
 \end{subsection}
 
 \begin{subsection}{Problem 2}
     \begin{frame}
         \begin{block}{Problem 2}
-            Let $c \in (0, \frac{3}{4})$ and $x_1 \in (0, 1)$. Define the sequence $\{x_n\}_{n=1}^{\infty}$ by the recurrence relation $x_{n+1} = 1 - c x_n^2$. Given that all terms of $\{x_n\}_{n=1}^{\infty}$ are distinct, prove that the sequence $\{x_n\}$ converges and find its limit.    
-        \end{block}
-    \end{frame}
-
-    \begin{frame}
-        \begin{block}{Hint 1}
-            Let $f(x) = 1 - cx^2$. Note that $f(x)$ is decreasing on $(0, 1)$.
-            Therefore, the sequence $\{x_n\}$ is not monotonic.
-            Consider the monotonicity of the composite function $g(x) = f(f(x))$.
-        \end{block}
-
-        \pause
-        \vspace{2em}
-        \begin{block}{Hint 2}
-            Investigate the odd terms $\{x_{2n-1}\}$ and even terms $\{x_{2n}\}$ separately.
-            Since $g(x)$ is increasing, these subsequences are monotonic.
-            Show that they are bounded and thus convergent.
-        \end{block}
-    \end{frame}
-
-    \begin{frame}
-        \begin{block}{Hint 3}
-            Let $x_{2n} \to \alpha$ and $x_{2n-1} \to \beta$. We have:
+            Evaluate the following limit:
             \[
-                \begin{cases}
-                    \beta = 1 - c\alpha^2 \\
-                    \alpha = 1 - c\beta^2
-                \end{cases}
-            \]
-            Subtract the two equations: $\alpha - \beta = c(\alpha^2 - \beta^2)$.
-        \end{block}
-
-        \pause
-        \vspace{2em}
-        \begin{block}{Hint 4}
-            Factor the difference to get $(\alpha - \beta)[1 - c(\alpha + \beta)] = 0$.
-            Assume $\alpha \neq \beta$. Derive a contradiction using the given condition $c < 3/4$.
-        \end{block}
-
-    \end{frame}
-\end{subsection}
-
-\begin{subsection}{Problem 3}
-    \begin{frame}
-        \begin{block}{Problem 3}
-            Given that $\lim\limits_{n \to \infty} (2x_{n+1} + x_n) = A \in \mathbb{R}$. Prove that the sequence $\{x_n\}$ converges.    
-        \end{block}
-    \end{frame}
-
-    \begin{frame}
-        \begin{block}{Hint 1}
-            Let $y_n = 2x_{n+1} + x_n$. We are given that $y_n \to A$.
-            Rewrite the recurrence relation to express $x_{n+1}$ in terms of $x_n$:
-            \[
-                x_{n+1} = -\frac{1}{2}x_n + \frac{1}{2}y_n
-            \]
-        \end{block}
-
-        \pause
-        \vspace{2em}
-        \begin{block}{Hint 2}
-            Assume $\lim\limits_{n \to \infty} x_n = L$ exists. Taking the limit on both sides of the equation from Hint 1:
-            \[
-                L = -\frac{1}{2}L + \frac{1}{2}A
-            \]
-            Solve for $L$.
-        \end{block}
-    \end{frame}
-
-    \begin{frame}
-        \begin{block}{Hint 3}
-            Let $L = A/3$. Consider the distance $|x_{n+1} - L|$.
-            Use the Triangle Inequality to show:
-            \[
-                |x_{n+1} - L| \le \frac{1}{2}|x_n - L| + \frac{1}{2}|y_n - A|
-            \]
-            Since $\frac{1}{2} < 1$ and $|y_n - A| \to 0$, deduce that $|x_n - L| \to 0$.
-        \end{block}
-    \end{frame}
-
-\end{subsection}
-
-\begin{subsection}{Problem 4}
-    \begin{frame}
-        \begin{block}{Problem 4}
-            Calculate the limit of the sequence:
-            \[
-            \lim_{n \to +\infty} \left( \frac{\ln 1 + 2\ln 2 + 3\ln 3 + \cdots + n\ln n}{n^2} - \frac{\ln n}{2} \right).
+            \lim_{(x,y) \to (0,0)} \frac{x^5 + y^5}{x^3 + y^3}
             \]    
         \end{block}
     \end{frame}
 
     \begin{frame}
         \begin{block}{Hint 1}
-            Let $S_n = \sum\limits_{k=1}^n k \ln k$.
-            First, combine the two terms into one fraction to apply the \textbf{Stolz Theorem}:
-            \[
-                \lim_{n \to +\infty} \frac{S_n - \frac{1}{2}n^2 \ln n}{n^2}
-            \]
+            Start by factoring the numerator using the sum of fifth powers formula and the denominator using the sum of cubes formula. Look for a common algebraic factor, $(x+y)$, that can be canceled out to simplify the expression.
         \end{block}
 
         \pause
         \vspace{2em}
         \begin{block}{Hint 2}
-            When calculating the difference of the numerator, you will encounter the term $(n-1)^2 \ln(n-1)$.
-            Rewrite it using logarithms:
-            \[
-                \ln(n-1) = \ln\left[n\left(1 - \frac{1}{n}\right)\right] = \ln n + \ln\left(1 - \frac{1}{n}\right)
-            \]
+            After simplifying, convert the remaining fractional expression into polar coordinates by letting $x = r \cos \theta$ and $y = r \sin \theta$. 
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\begin{subsection}{Problem 3}
+    \begin{frame}
+        \begin{block}{Problem 3}
+            A set $K$ in $\mathbb{R}^m$ is called a convex set if for any $\mathbf{x}_1, \mathbf{x}_2 \in K$ and any $0 < t < 1$, we have $(1-t)\mathbf{x}_1 + t\mathbf{x}_2 \in K$. A function $f: K \to \mathbb{R}$ is called a convex function if for any $\mathbf{x}_1, \mathbf{x}_2 \in K$ and any $0 < t < 1$, we have
+            $$
+            f((1-t)\mathbf{x}_1 + t\mathbf{x}_2) \le (1-t)f(\mathbf{x}_1) + tf(\mathbf{x}_2).
+            $$
+
+            Prove that any convex function on an open convex set $K$ is locally Lipschitz, that is, for any $\mathbf{x}_0 \in K$, there exists a neighborhood $U$ of $\mathbf{x}_0$ and a constant $L > 0$ such that for any $\mathbf{x}, \mathbf{y} \in U$, we have
+            $$
+            |f(\mathbf{x}) - f(\mathbf{y})| \le L\|\mathbf{x} - \mathbf{y}\|.
+            $$
         \end{block}
     \end{frame}
 
     \begin{frame}
+        \begin{block}{Hint 1}
+            Construct a polytope around $\mathbf{x}_0$ within $K$ to find a bound $M$ via vertex combinations. 
+        \end{block}
+
+        \pause
+        \vspace{2em}
+        \begin{block}{Hint 2}
+            For any $\mathbf{x}, \mathbf{y} \in B(\mathbf{x}_0, r)$ with distance $d$, extend the ray from $\mathbf{y}$ through $\mathbf{x}$ to a point $\mathbf{z}$ at distance $r$ from $\mathbf{x}$. Verify $\mathbf{z} \in B(\mathbf{x}_0, 2r)$.
+        \end{block}
+
+        \pause
+        \vspace{2em}
         \begin{block}{Hint 3}
-        To evaluate the limit, use the second-order Taylor expansion for $\ln(1-x)$ as $x \to 0$:
-        \[
-            \ln\left(1 - \frac{1}{n}\right) = -\frac{1}{n} - \frac{1}{2n^2} + o\left(\frac{1}{n^2}\right)
-        \]
-        Substitute this back to simplify the numerator difference.
+            Express $\mathbf{x}$ as a convex combination: $\mathbf{x} = \frac{r}{r+d}\mathbf{y} + \frac{d}{r+d}\mathbf{z}$. Apply the convexity condition, subtract $f(\mathbf{y})$, and use bound $M$ to derive the Lipschitz constant $L = \frac{2M}{r}$.    
         \end{block}
     \end{frame}
-
 \end{subsection}
 
 \end{section}
 
-\begin{section}{Continuity of Functions}
+\begin{section}{Differential of Multivariable Functions}
 
 \begin{subsection}{Problem 1}
     \begin{frame}
         \begin{block}{Problem 1}
-            Let $a_1, a_2, \dots, a_n$ be arbitrary positive numbers. Calculate the limit:
-            \[
-                l = \lim_{x \to 0} \left( \frac{a_1^x + a_2^x + \cdots + a_n^x}{n} \right)^{\frac{1}{x}}.
-            \]
+            Let $f(x,y)$ be a differentiable function on $\mathbb{R}^2 \setminus \{(0,0)\}$ and $k$ be a non-negative integer. Suppose that for any $(x,y) \neq (0,0)$, the following equation holds:
+            $$
+            x \frac{\partial f}{\partial x}(x,y) + y \frac{\partial f}{\partial y}(x,y) = k f(x,y)
+            $$
+            
+            Prove that $f$ is a homogeneous function of degree $k$. That is, for any $(x,y) \neq (0,0)$ and any positive real number $t$, show that:
+            $$
+            f(tx, ty) = t^k f(x,y)
+            $$
         \end{block}
     \end{frame}
 
     \begin{frame}
         \begin{block}{Hint 1}
-        Recall the standard result: if $\lim\limits_{x \to 0} \alpha(x) = 0$, then
-        \[
-            \lim_{x \to 0} [1 + \alpha(x)]^{\frac{1}{x}} = e^{\lim\limits_{x \to 0} \frac{\alpha(x)}{x}}
-        \]
-        In this problem, let the base be $1 + \alpha(x)$, so:
-        \[
-            \alpha(x) = \frac{a_1^x + \cdots + a_n^x}{n} - 1 = \frac{\sum_{i=1}^n (a_i^x - 1)}{n}
-        \]
-        \end{block}
-
-    \end{frame} 
-    \begin{frame}
-        \begin{block}{Hint 2}
-        To evaluate the exponent limit $\lambda = \lim_{x \to 0} \frac{\alpha(x)}{x}$, rewrite it as:
-        \[
-            \lim_{x \to 0} \frac{1}{n} \sum_{i=1}^n \frac{a_i^x - 1}{x}
-        \]
-        Use the standard limit (definition of derivative at $x=0$):
-        \[
-            \lim_{x \to 0} \frac{a^x - 1}{x} = \ln a
-        \]
-        The final answer involves the sum of logarithms.
-        \end{block}
-    \end{frame}
-
-\end{subsection}
-
-\end{section}
-
-\begin{section}{Derivatives and Differentials of Functions}
-
-\begin{subsection}{Problem 1}
-    \begin{frame}
-        \begin{block}{Problem 1}
-            Calculate the following limit:
-            \[
-            \lim_{x \to 0} \frac{1 - \cos x \sqrt{\cos 2x} \sqrt[3]{\cos 3x}}{x^2}.
-            \]
-        \end{block}
-    \end{frame}
-
-    \begin{frame}
-        \begin{block}{Hint 1}
-            Recall the second-order approximations:
-            \[
-                \cos u \approx 1 - \frac{1}{2}u^2
-            \]
-            \[
-                (1 + u)^\alpha \approx 1 + \alpha u
-            \]
+            Fix an arbitrary point $(x,y) \neq (0,0)$. To connect $f(tx, ty)$ and $t^k f(x,y)$, construct an auxiliary function of a single variable $t > 0$:
+            $$
+            g(t) = t^{-k} f(tx, ty)
+            $$
+        
+            Your ultimate goal is to prove that $g(t)$ is a constant function independent of $t$.
         \end{block}
 
         \pause
-        \vspace{2em}
+        \vspace{1em}
         \begin{block}{Hint 2}
-            Apply the approximations to the composite functions.
-            \[
-                \sqrt{\cos 2x} = (\cos 2x)^{\frac{1}{2}} \approx \left(1 - \frac{1}{2}(2x)^2\right)^{\frac{1}{2}} \approx 1 - x^2
-            \]
-            Do the same for $\sqrt[3]{\cos 3x}$, then multiply the linear approximations.
+            Calculate the derivative $g'(t)$ using the product rule and the multivariate chain rule. Then, evaluate the given condition (the partial differential equation) at the scaled point $X = tx$ and $Y = ty$. Substitute this relationship into your expression for $g'(t)$ to show that $g'(t) = 0$. Finally, evaluate $g(1)$ to finish the proof.    
         \end{block}
     \end{frame}
-
 \end{subsection}
-
 \end{section}
 
 \end{document}
