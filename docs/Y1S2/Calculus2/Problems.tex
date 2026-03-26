@@ -158,6 +158,117 @@
         \end{block}
     \end{frame}
 \end{subsection}
+
+
+\begin{subsection}{Problem 2}
+    \begin{frame}
+        \begin{block}{Problem 2}
+            Find the second-order Taylor formula with Peano remainder for the determinant $\det A$ at $A = I$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            Let $A = I + X$, where $X = (x_{ij})$ represents a matrix of small increments. Your goal is to find the Taylor expansion of the multivariate function $f(X) = \det(I+X)$ around the zero matrix $X = O$ up to the second degree.
+        \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 2}
+            Instead of calculating partial derivatives directly, consider the eigenvalues. If $\lambda_1, \lambda_2, \dots, \lambda_n$ are the eigenvalues of $X$, the eigenvalues of $I+X$ are $1+\lambda_1, 1+\lambda_2, \dots, 1+\lambda_n$. The determinant is simply the product of these eigenvalues:
+            $$
+            \det(I+X) = \prod_{k=1}^n (1+\lambda_k)
+            $$
+
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Expand the product $\prod_{k=1}^n (1+\lambda_k)$ algebraically, keeping only the terms up to degree 2 in $\lambda_k$. Finally, connect the symmetric polynomial sums $\sum \lambda_k$ and $\sum_{i < j} \lambda_i \lambda_j$ back to the matrix invariants $\operatorname{tr}(X)$ and $\operatorname{tr}(X^2)$ to assemble your final Taylor polynomial.
+        \end{block}
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 4}
+            Finally, the answer is:
+            \[ \det (I + A) = 1 + \operatorname{tr}(A) + \frac{1}{2} \left[\operatorname{tr}(A)^2 - \operatorname{tr}(A^2) \right] + o(\|A\|^2).\]
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\begin{subsection}{Problem 3}
+    \begin{frame}
+        \begin{block}{Problem 3}
+            Find the second-order Taylor formulas with Peano remainder and with Lagrange remainder for $f(x,y) = \sqrt{1+x^2+y^2}$ at the point $(0,0)$.    
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            Instead of calculating the partial derivatives of $f(x,y)$ directly, construct an auxiliary single-variable function $g(t) = f(tx, ty) = \sqrt{1 + t^2(x^2+y^2)}$. This restricts the function to a line segment connecting the origin $(0,0)$ to the point $(x,y)$ as $t$ varies from $0$ to $1$.
+        \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 2}
+            Apply the standard single-variable Maclaurin formula to $g(t)$ up to the second degree, with a Lagrange remainder:
+            $$
+            g(t) = g(0) + g'(0)t + \frac{1}{2!}g''(0)t^2 + \frac{1}{3!}g'''(\theta t)t^3
+            $$
+            where $0 < \theta < 1$. The value of $g^{(k)}(0)$ is exactly equal to the $k$-th order polynomial term of $f(x,y)$ at the origin.
+           \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Evaluate the expansion at $t=1$ so that $g(1) = f(x,y)$. You will find that the terms $g(0) + g'(0) + \frac{1}{2}g''(0)$ exactly form the 2nd-order Taylor polynomial of $f(x,y)$. The final term, $\frac{1}{6}g'''(\theta)$, perfectly corresponds to the 2nd-order Lagrange remainder $R_2$ evaluated at the intermediate point $(\theta x, \theta y)$.
+        \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 4}
+            Finally, the answer is:
+            $$
+            \sqrt{1 + x^2 + y^2} = 1 + \frac{1}{2}(x^2 + y^2) - \frac{\theta(x^2 + y^2)^2}{2(1 + \theta^2 x^2 + \theta^2 y^2)^{\frac{5}{2}}},
+            $$
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\begin{subsection}{Problem 4}
+    \begin{frame}
+        \begin{block}{Problem 4}
+            Suppose that the second-order Taylor expansion of a twice continuously differentiable function $f(u,v)$ at the point $(0,0)$ is given by
+            $$
+            f(u,v) = 1 + 2u - uv + v^2 + o(u^2 + v^2), \quad (u,v) \to (0,0).
+            $$
+            Let $w = f(x+y+z, xyz)$. Find $\frac{\partial^2 w}{\partial x \partial y}(1,0,-1)$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            Recall the standard form of the second-order Taylor expansion for a function of two variables at $(0,0)$:
+            \begin{align*}
+            f(u,v) =&f(0,0) + f_u u + f_v v + \frac{1}{2}\left( f_{uu}u^2 + 2f_{uv}uv + f_{vv}v^2 \right)  \\ 
+            &+ o(u^2+v^2)
+            \end{align*}
+               \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 2}
+            Before differentiating $w$, calculate the values of the intermediate variables $u = x+y+z$ and $v = xyz$ at the given point $(x,y,z) = (1,0,-1)$. You will find that $(u,v)$ maps perfectly to $(0,0)$, meaning you can directly use the partial derivatives extracted in Hint 1.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Apply the chain rule to find the first partial derivative $\frac{\partial w}{\partial x} = f_u \frac{\partial u}{\partial x} + f_v \frac{\partial v}{\partial x}$. Then, differentiate this result with respect to $y$ to find $\frac{\partial^2 w}{\partial x \partial y}$. 
+        \end{block}
+    \end{frame}
+\end{subsection}
+
 \end{section}
 
 \end{document}
