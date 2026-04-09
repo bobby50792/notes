@@ -62,8 +62,21 @@
 \headcommand {\beamer@framepages {30}{31}}
 \headcommand {\slideentry {2}{4}{3}{32/32}{Problem 4}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\beamer@partpages {1}{32}}
-\headcommand {\beamer@subsectionpages {1}{32}}
 \headcommand {\beamer@sectionpages {1}{32}}
-\headcommand {\beamer@documentpages {32}}
-\headcommand {\gdef \inserttotalframenumber {22}}
+\headcommand {\beamer@subsectionpages {1}{32}}
+\headcommand {\sectionentry {3}{Implicit Function and Inverse Mapping Theorem}{33}{Implicit Function and Inverse Mapping Theorem}{0}}
+\headcommand {\slideentry {3}{0}{1}{33/33}{}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\beamer@subsectionpages {33}{33}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{34}{Problem 1}}
+\headcommand {\slideentry {3}{1}{1}{34/34}{Problem 1}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {3}{1}{2}{35/36}{Problem 1}{0}}
+\headcommand {\beamer@framepages {35}{36}}
+\headcommand {\slideentry {3}{1}{3}{37/38}{Problem 1}{0}}
+\headcommand {\beamer@framepages {37}{38}}
+\headcommand {\beamer@partpages {1}{38}}
+\headcommand {\beamer@subsectionpages {1}{38}}
+\headcommand {\beamer@sectionpages {1}{38}}
+\headcommand {\beamer@documentpages {38}}
+\headcommand {\gdef \inserttotalframenumber {26}}

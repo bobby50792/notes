@@ -271,4 +271,56 @@
 
 \end{section}
 
+\begin{section}{Implicit Function and Inverse Mapping Theorem}
+
+\begin{subsection}{Problem 1}
+    \begin{frame}
+        \begin{block}{Problem 1}
+            Prove that the equation
+            $$
+            x^2 + y^2 + z^2 - 2xyz - 1 = 0
+            $$
+            defines an infinitely differentiable implicit function $z = z(x,y)$ in a neighborhood of $(0,0)$ that satisfies $z(0,0) = 1$. Furthermore, find the second-order Taylor polynomial of $z(x,y)$ at the point $(0,0)$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            To prove the existence of $z(x,y)$, define $F(x,y,z) = x^2 + y^2 + z^2 - 2xyz - 1$. Check if the conditions are met at $(0,0,1)$:
+        \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 2}
+            The second-order Taylor polynomial at $(0,0)$ is given by:
+            $$
+            P_2(x,y) = z(0,0) + z_x x + z_y y + \frac{1}{2}(z_{xx}x^2 + 2z_{xy}xy + z_{yy}y^2)
+            $$
+            Note the symmetry of $x$ and $y$ in the original equation, which implies $z_x(0,0) = z_y(0,0)$ and $z_{xx}(0,0) = z_{yy}(0,0)$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Let $z(x,y) = 1 + ax + by + cx^2 + dxy + ey^2 + \dots$ 
+            Substitute this expression into the original equation:
+            $$
+            x^2 + y^2 + z^2 - 2xyz - 1 = 0
+            $$
+            Collect the terms for $x, y, x^2, xy, y^2$ and set their coefficients to zero to solve for $a, b, c, d, e$.
+        \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 4}
+            After balancing the coefficients for $x^2, y^2,$ and $xy$, the second-order Taylor polynomial is:
+            $$
+            z(x,y) = 1 - \frac{1}{2}x^2 + xy - \frac{1}{2}y^2
+            $$
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\end{section}
+
 \end{document}
