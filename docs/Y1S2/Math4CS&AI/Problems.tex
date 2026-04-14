@@ -88,6 +88,234 @@
     \end{frame}
 \end{subsection}
 
+\begin{subsection}{Problem 2}
+    \begin{frame}
+        \begin{block}{Problem 2}
+            Consider throwing $n$ balls independently and uniformly at random into $n$ bins. Let $M$ be the maximum load (the maximum number of balls in any single bin). Prove that with high probability, the maximum load $M$ satisfies:
+            \[
+                M = \mathcal{O}\left( \frac{\ln n}{\ln \ln n} \right)
+            \]
+            Specifically, show that for a sufficiently large constant $c$, $\Pr\left[ M \ge \frac{c \ln n}{\ln \ln n} \right] \le \frac{1}{n}$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            Focus on a single bin, say Bin $i$. Let $X_i$ be the number of balls in Bin $i$. This follows a Binomial distribution $B(n, 1/n)$. The probability that Bin $i$ contains at least $k$ balls is:
+            \[
+                \Pr[X_i \ge k] \le \binom{n}{k} \left( \frac{1}{n} \right)^k
+            \]
+        \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 2}
+            Use Stirling's approximation or the simpler inequality $\binom{n}{k} \le \left( \frac{ne}{k} \right)^k$ to simplify the bound:
+            \[
+                \Pr[X_i \ge k] \le \frac{n^k}{k!} \cdot \frac{1}{n^k} = \frac{1}{k!} \le \left( \frac{e}{k} \right)^k
+            \]
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Apply the Union Bound over all $n$ bins to bound the maximum load $M$:
+            \[
+                \Pr[M \ge k] = \Pr\left[ \bigcup_{i=1}^n \{X_i \ge k\} \right] \le \sum_{i=1}^n \Pr[X_i \ge k] \le n \left( \frac{e}{k} \right)^k
+            \]
+            We want this probability to be $\le n^{-1}$, which means we need $n (e/k)^k \le n^{-1}$, or equivalently $k (\ln k - 1) \ge 2 \ln n$.
+        \end{block}
+    \end{frame} 
+
+    \begin{frame}
+        \begin{block}{Hint 4}
+            To solve $k \ln k \approx \ln n$, let $k = \frac{c \ln n}{\ln \ln n}$. Substitute this into the inequality:
+            \[
+                \ln k = \ln \left( \frac{c \ln n}{\ln \ln n} \right) = \ln \ln n - \ln \ln \ln n + \ln c
+            \]
+            Show that for a large enough $c$, the $k \ln k$ term dominates $\ln n$ and satisfies the bound. This result highlights the "power of choices" in randomized algorithms.
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\begin{subsection}{Problem 3}
+    \begin{frame}
+        \begin{block}{Problem 3}
+            Let $G = (V, E)$ be a graph with $n$ vertices and $m$ edges, where $n \le 2m$. Use the probabilistic method to prove that there exists an independent set in $G$ of size at least:
+            \[
+                \alpha(G) \ge \frac{n^2}{4m}
+            \]
+            where $\alpha(G)$ denotes the size of the maximum independent set.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            Construct a random subset $S \subseteq V$ by independently including each vertex $v \in V$ with probability $p$. 
+            Let $X$ be the number of vertices in $S$, and $Y$ be the number of edges in the subgraph induced by $S$.
+            Show that:
+            \[
+                \mathbb{E}[X] = np, \quad \mathbb{E}[Y] = mp^2
+            \]
+        \end{block}
+
+        \pause
+        \vspace{1em}
+        \begin{block}{Hint 2}
+            $S$ is not necessarily an independent set. To obtain an independent set $S'$, for each edge in the induced subgraph, remove one of its endpoints from $S$. 
+            The size of the resulting independent set $S'$ satisfies:
+            \[
+                |S'| \ge X - Y
+            \]
+            Apply the linearity of expectation to find $\mathbb{E}[|S'|]$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            We have $\mathbb{E}[|S'|] \ge np - mp^2$. To find the tightest bound, maximize this quadratic function with respect to $p$:
+            \[
+                f(p) = np - mp^2 \implies f'(p) = n - 2mp = 0
+            \]
+            Set $p = \frac{n}{2m}$ (Note: $n \le 2m$ ensures $p \le 1$). 
+            Substitute $p$ back into the expectation to obtain the final bound $\frac{n^2}{4m}$.
+        \end{block}
+    \end{frame} 
+
+    \begin{frame}
+        \begin{block}{Hint 4}
+            By the property of expectation, if the average value of $|S'|$ is $\frac{n^2}{4m}$, then there must exist at least one specific set $S'$ in the sample space such that:
+            \[
+                |S'| \ge \frac{n^2}{4m}
+            \]
+            This completes the proof. This method is a powerful example of using \textbf{alteration} to satisfy hard constraints in combinatorics.
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\end{section}
+
+\begin{section}{Sampling and Concentration}
+
+\begin{subsection}{Problem 1}
+    \begin{frame}
+        \begin{block}{Problem 1}
+            For any $k \ge 3$, prove that there exists a graph $G$ such that its chromatic number $\chi(G) > k$ and its girth $g(G) > k$ (where $g(G)$ is the length of the shortest cycle in $G$).
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            Fix $\epsilon < 1/k$. Consider a random graph $G(n, p)$ with $p = n^{\epsilon-1}$. 
+            Let $X$ be the number of cycles in $G$ of length at most $k$. 
+            Show that the expected number of such short cycles is:
+            \[
+                \mathbb{E}[X] = \sum_{j=3}^k \frac{(n)_j}{2j} p^j = \mathcal{O}(n^k p^k) = \mathcal{O}(n^{k\epsilon})
+            \]
+            Since $k\epsilon < 1$, $\mathbb{E}[X] = o(n)$. By Markov's inequality, $\Pr[X \ge n/2] \to 0$ as $n \to \infty$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 2}
+            Recall that $\chi(G) \ge n/\alpha(G)$. We need to upper bound the independence number $\alpha(G)$. 
+            Show that for $r = \lceil \frac{3}{p} \ln n \rceil$:
+            \[
+                \Pr[\alpha(G) \ge r] \le \binom{n}{r} (1-p)^{\binom{r}{2}} \le \left[ \frac{ne}{r} e^{-p(r-1)/2} \right]^r
+            \]
+            Prove that this probability tends to $0$ as $n \to \infty$. Thus, w.h.p., $\alpha(G) < \frac{3}{p} \ln n = 3 n^{1-\epsilon} \ln n$.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            Choose $n$ large enough such that $\Pr[X \ge n/2] < 1/2$ and $\Pr[\alpha(G) \ge n/2k] < 1/2$. 
+            There exists a graph $G$ with:
+            \begin{itemize}
+                \item Fewer than $n/2$ cycles of length $\le k$.
+                \item $\alpha(G) < n/2k$.
+            \end{itemize}
+            To obtain $G'$, remove one vertex from each cycle of length $\le k$. 
+            The resulting graph $G'$ has $|V'| \ge n/2$ vertices and \textbf{no cycles of length $\le k$}.
+        \end{block}
+    \end{frame} 
+
+    \begin{frame}
+        \begin{block}{Hint 4}
+            For the modified graph $G'$, the girth $g(G') > k$ by construction. 
+            The independence number $\alpha(G')$ cannot increase by removing vertices, so $\alpha(G') \le \alpha(G) < n/2k$. 
+            Then, the chromatic number of $G'$ satisfies:
+            \[
+                \chi(G') \ge \frac{|V'|}{\alpha(G')} \ge \frac{n/2}{n/2k} = k
+            \]
+            With a slightly more careful choice of constants, we ensure $\chi(G') > k$.
+        \end{block}
+    \end{frame}
+\end{subsection}
+
+\begin{subsection}{Problem 2}
+    \begin{frame}
+        \begin{block}{Problem 2}
+            In the Coupon Collector's Problem, let $T$ be the number of trials to collect all $n$ distinct coupons. 
+            1. Find the variance $\text{Var}(T)$.
+            2. Prove that as $n \to \infty$, the variance satisfies the upper bound:
+            \[
+                \text{Var}(T) \le \frac{\pi^2}{6} n^2
+            \]
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 1}
+            Let $X_i$ be the number of trials to collect the $i$-th new coupon after $i-1$ distinct coupons have been collected. 
+            $X_i$ follows a Geometric distribution $G(p_i)$ with success probability:
+            \[
+                p_i = \frac{n - (i-1)}{n}
+            \]
+            Since $X_i$ are independent, the total time is $T = \sum_{i=1}^n X_i$, and the variance is:
+            \[
+                \text{Var}(T) = \sum_{i=1}^n \text{Var}(X_i) = \sum_{i=1}^n \frac{1 - p_i}{p_i^2}
+            \]
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 2}
+            Substitute $p_i$ into the variance formula:
+            \[
+                \text{Var}(T) = \sum_{i=1}^n \frac{1 - \frac{n-i+1}{n}}{\left(\frac{n-i+1}{n}\right)^2} = \sum_{i=1}^n \frac{n(i-1)}{(n-i+1)^2}
+            \]
+            Let $j = n-i+1$. As $i$ ranges from $1$ to $n$, $j$ ranges from $n$ down to $1$:
+            \[
+                \text{Var}(T) = \sum_{j=1}^n \frac{n(n-j)}{j^2} = n^2 \sum_{j=1}^n \frac{1}{j^2} - n \sum_{j=1}^n \frac{1}{j}
+            \]
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \begin{block}{Hint 3}
+            To obtain the upper bound, we drop the negative term and consider the limit of the Basel series:
+            \[
+                \text{Var}(T) < n^2 \sum_{j=1}^n \frac{1}{j^2} < n^2 \sum_{j=1}^{\infty} \frac{1}{j^2}
+            \]
+            Using the Euler's solution to the Basel problem, we know:
+            \[
+                \sum_{j=1}^{\infty} \frac{1}{j^2} = \frac{\pi^2}{6}
+            \]
+        \end{block}
+    \end{frame}
+    
+    \begin{frame}
+        \begin{block}{Hint 4}
+            Therefore, we have the tight asymptotic bound:
+            \[
+                \text{Var}(T) \le \frac{\pi^2}{6} n^2
+            \]
+            This result shows that while the expected time $\mathbb{E}[T] \approx n \ln n$, the standard deviation $\sigma(T)$ is of order $\Theta(n)$, meaning the distribution is relatively concentrated for large $n$.
+        \end{block}
+    \end{frame}
+\end{subsection}
+
 \end{section}
 
 
